@@ -7,6 +7,16 @@ apt-get install pptp-linux -y
 # create 
 pptpsetup --create pptp0 --server yourserver  --username yourusername --password yourpassword --start
 
+# set up route
+```shell
+vim /etc/ppp/ip-up
+```
+add this:
+```shell
+route add default dev $1
+'''
+
+
 # connect:
 pon pptp0
 # disconnect
