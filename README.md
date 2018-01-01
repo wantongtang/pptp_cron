@@ -14,7 +14,7 @@ vim /etc/ppp/ip-up
 add this:
 ```shell
 route add default dev $1
-'''
+```
 
 
 # connect:
