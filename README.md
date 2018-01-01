@@ -16,7 +16,6 @@ add this:
 route add default dev $1
 ```
 
-
 # connect:
 pon pptp0
 # disconnect
@@ -27,3 +26,11 @@ crontab -e
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */1  * * * * /root/cron/pptp_cron.sh >> /var/log/pptp_pinger.log 2>&1
+
+
+# proxy
+
+```shell
+* * * * * if [ "$(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')" = "" ]; then ssh -C4qTfnN -D 0.0.0.0:8888 os@127.0.0.1 ; fi
+0 0 * * * kill $(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')
+```
