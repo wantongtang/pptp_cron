@@ -34,3 +34,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 * * * * * if [ "$(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')" = "" ]; then ssh -C4qTfnN -D 0.0.0.0:8888 os@127.0.0.1 ; fi
 0 0 * * * kill $(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')
 ```
+# constrain ip access
+```shell
+iptables -I INPUT -p tcp --dport 8889 -j DROP
+iptables -I INPUT -s  125.85.0.0/16  -p tcp --dport  8889  -j  ACCEPT
+```
