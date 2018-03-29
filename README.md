@@ -59,4 +59,3 @@ ipparam pptp0
 ```shell
 curl --socks5 9.9.9.128:1808 http://www.google.com
 ```
-```
