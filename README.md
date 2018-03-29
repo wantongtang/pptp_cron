@@ -44,6 +44,7 @@ iptables -I INPUT -s  125.85.0.0/16  -p tcp --dport  8889  -j  ACCEPT
 ```shell
 vim /etc/ppp/peers/pptp0
 ```
+```text
 lock
 noauth
 maxfail 0  
@@ -53,7 +54,7 @@ nodeflate
 name socks5
 remotename pptp0
 ipparam pptp0
-
+```
 ## use socks5
 ```shell
 curl --socks5 9.9.9.128:1808 http://www.google.com
