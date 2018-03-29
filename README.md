@@ -1,13 +1,13 @@
-# ppptp auto dial
+## ppptp auto dial
 ## pptp 自动拨号
 
-# install
+## install
 apt-get install pptp-linux -y
 
-# create 
+## create 
 pptpsetup --create pptp0 --server yourserver  --username yourusername --password yourpassword --start
 
-# set up route
+## set up route
 ```shell
 vim /etc/ppp/ip-up
 ```
@@ -16,25 +16,25 @@ add this:
 route add default dev $1
 ```
 
-# connect:
+## connect:
 pon pptp0
-# disconnect
+## disconnect
 poff pptp0
 
-# auto dial
+## auto dial
 crontab -e
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 */1  * * * * /root/cron/pptp_cron.sh >> /var/log/pptp_pinger.log 2>&1
 
 
-# proxy
+## proxy
 
 ```shell
 * * * * * if [ "$(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')" = "" ]; then ssh -C4qTfnN -D 0.0.0.0:8888 os@127.0.0.1 ; fi
 0 0 * * * kill $(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')
 ```
-# constrain ip access
+## constrain ip access
 ```shell
 iptables -I INPUT -p tcp --dport 8889 -j DROP
 iptables -I INPUT -s  125.85.0.0/16  -p tcp --dport  8889  -j  ACCEPT
