@@ -5,7 +5,7 @@
 apt-get install pptp-linux -y
 
 ## create 
-pptpsetup --create pptp0 --server yourserver  --username yourusername --password yourpassword --start
+pptpsetup --create pptp0 --server yourserver  --username yourusername --password yourpassword
 
 ## set up route
 ```shell
