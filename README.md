@@ -59,3 +59,41 @@ ipparam pptp0
 ```shell
 curl --socks5 9.9.9.128:1808 http://www.google.com
 ```
+
+## auto connect 
+
+```bash
+sudo vim network_pptp0.sh
+sudo chmod 755 network_pptp0.sh
+sudo mv network_pptp0 /etc/init.d/
+
+sudo update-rc.d network_pptp0.sh defaults 90  # 90 preority  bigger latter
+sudo update-rc.d -f network_pptp0.sh remove    # remove
+
+```
+
+
+https://blog.csdn.net/hotpotbo/article/details/80853946
+
+```shell
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          network_pptp0
+# Required-Start:
+# Required-Stop:
+# Should-Start:      glibc
+# Default-Start:     2 3 4 5
+# Default-Stop:      
+# Short-Description: Set hostname based on /etc/hostname
+# Description:       Read the machines hostname from /etc/hostname, and
+#                    update the kernel value with this value.  If
+#                    /etc/hostname is empty, the current kernel value
+#                    for hostname is used.  If the kernel value is
+#                    empty, the value 'localhost' is used.
+### END INIT INFO
+
+
+sudo pon pptp0
+
+```
+
