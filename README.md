@@ -97,3 +97,4 @@ sudo pon pptp0
 
 ```
 
+ref:https://unix.stackexchange.com/questions/235231/insserv-warning-script-xxx-sh-missing-lsb-tags-and-overrides
