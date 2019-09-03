@@ -31,7 +31,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 ## proxy
 
 ```shell
-* * * * * if [ "$(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')" = "" ]; then ssh -C4qTfnN -D 0.0.0.0:8888 os@127.0.0.1 ; fi
+ssh-keygen
+cat /root/.ssh/id_rsa.pub >>/root/.ssh/authorized_keys
+* * * * * if [ "$(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')" = "" ]; then ssh -C4qTfnN -D 0.0.0.0:8888 root@127.0.0.1 ; fi
 0 0 * * * kill $(ps x | grep C4qTfnN | grep -v grep | awk '{print $1}')
 ```
 ## constrain ip access
